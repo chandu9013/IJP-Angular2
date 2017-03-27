@@ -13,7 +13,8 @@ export class JobService {
     private url = 'jobs';
 
     constructor(private http: Http, private location: Location) {
-        this.url = this.location.prepareExternalUrl(this.url);
+        //this.url = this.location.prepareExternalUrl(this.url);
+        console.log('url - '+this.url);
     }
     public getJobs(pagesize, pageno): Observable<any> {
         console.log('Getting Jobs');

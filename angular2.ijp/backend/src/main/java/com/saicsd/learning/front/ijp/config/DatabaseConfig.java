@@ -5,8 +5,12 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
+import org.springframework.boot.web.servlet.ErrorPage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -20,7 +24,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-public class DatabaseConfig {
+public class DatabaseConfig  implements EmbeddedServletContainerCustomizer {
 
   @Value("${db.driver}")
   private String DB_DRIVER;
@@ -90,6 +94,11 @@ public class DatabaseConfig {
     HibernateTransactionManager transactionManager = new HibernateTransactionManager();
     transactionManager.setSessionFactory(sessionFactory().getObject());
     return transactionManager;
+  }
+  
+  @Override
+  public void customize(ConfigurableEmbeddedServletContainer container) {
+      container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/index.html"));
   }
 
 }

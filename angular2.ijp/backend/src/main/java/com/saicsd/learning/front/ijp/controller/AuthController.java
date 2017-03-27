@@ -72,5 +72,15 @@ public class AuthController extends WebSecurityConfigurerAdapter {
         .antMatchers("/**", "/login**", "/webjars/**", "/ng/**").permitAll().anyRequest()
         .authenticated().and().logout().logoutSuccessUrl("/").permitAll().and().csrf().disable();
   }
+  
+//  @Bean
+//  public EmbeddedServletContainerCustomizer containerCustomizer() {
+//          return new EmbeddedServletContainerCustomizer() {
+//              @Override
+//              public void customize(ConfigurableEmbeddedServletContainer container) {
+//                  container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/index.html"));
+//              }
+//          };
+//  }
 
 }

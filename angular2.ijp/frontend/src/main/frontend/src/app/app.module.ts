@@ -59,7 +59,7 @@ const appRoutes: Routes = [
     AlertModule.forRoot(),
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/ijp' },
+  providers: [
     JobService,
     LoginService,
     JobApplicationService
@@ -67,3 +67,4 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// { provide: APP_BASE_HREF, useValue: '/ijp' },

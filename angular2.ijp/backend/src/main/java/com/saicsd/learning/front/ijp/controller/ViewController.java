@@ -18,19 +18,19 @@ public class ViewController {
    * 
    * @return index.html
    */
-  @RequestMapping(value = "/admin", method = RequestMethod.GET)
-  public String admin() {
-    return "index.html";
-  }
+//  @RequestMapping(value = "/admin**", method = RequestMethod.GET)
+//  public String admin() {
+//    return "index.html";
+//  }
 
   /**
    * Controller Method that redirects to index page.
    * 
    * @return index.html
    */
-  @RequestMapping(value = "/employee", method = RequestMethod.GET)
-  public String employee() {
-    return "index.html";
-  }
+//  @RequestMapping(value = "/employee**", method = RequestMethod.GET)
+//  public String employee() {
+//    return "index.html";
+//  }
 
 }

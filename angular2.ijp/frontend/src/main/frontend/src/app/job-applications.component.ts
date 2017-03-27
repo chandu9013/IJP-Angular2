@@ -11,15 +11,26 @@ import { JobApplicationService } from "app/job-application.service";
   templateUrl: './job-applications.component.html',
   providers: []
 })
-export class JobApplicationsComponent {
+export class JobApplicationsComponent implements OnInit {
 
   jId;
   selectedJob = {};
   jobs = [];
   jobApplications = [];
-  constructor(private route: ActivatedRoute, private jobService: JobService, private applicationService: JobApplicationService) {
+  constructor(private route: ActivatedRoute, private jobService: JobService, private applicationService: JobApplicationService, private router: Router) {
     route.params.map(res => res).subscribe(res => this.jId = res['id']);
-    this.jobs = jobService.response.jobs;
+  }
+
+  ngOnInit(): void {
+    if (this.jobService.response != null) {
+      this.jobs = this.jobService.response.jobs;
+    } else {
+      // this.jobService.getJobs(1000, 1).subscribe(res => {
+      //   this.jobs = res.jobs;
+      //   console.log('jobs - ' + JSON.stringify(res));
+      // }, error => console.log('error status - ' + error.status));
+      this.jobService.getJobs(1000,1);
+    }
     for (let job of this.jobs) {
       if (job.jId == this.jId) {
         this.selectedJob = job;
@@ -30,5 +41,6 @@ export class JobApplicationsComponent {
     this.applicationService.getJobApplication(this.jId).
       subscribe(res => console.log(JSON.stringify(res)),
       error => console.log('error status - ' + error.status));
+    console.log(this.router.url);
   }
 }

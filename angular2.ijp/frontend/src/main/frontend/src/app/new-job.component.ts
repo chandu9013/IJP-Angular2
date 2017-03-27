@@ -13,7 +13,7 @@ export class NewJobComponent{
     categories=[{'cId':1,'categoryName':'developer'},{'cId':2,'categoryName':'tester'}];
 
     onSubmit(){
-        
+
     }
     
 }
