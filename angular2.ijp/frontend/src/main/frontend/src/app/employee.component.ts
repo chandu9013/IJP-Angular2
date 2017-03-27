@@ -8,7 +8,7 @@ import { Observable } from "rxjs/Observable";
   selector: 'employee',
   templateUrl: 'employee.component.html',
   styleUrls: ['employee.component.css'],
-  providers: [JobService]
+  providers: []
 })
 export class EmployeeComponent implements OnInit {
 

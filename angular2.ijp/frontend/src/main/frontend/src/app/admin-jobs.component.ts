@@ -7,7 +7,7 @@ import { Observable } from "rxjs/Observable";
 @Component({
   selector: 'admin-jobs',
   templateUrl: 'admin-jobs.component.html',
-  providers: [JobService]
+  providers: []
 })
 export class AdminJobsComponent implements OnInit {
 

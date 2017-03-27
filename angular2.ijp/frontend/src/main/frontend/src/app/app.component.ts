@@ -7,7 +7,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: 'app-root',
   template: `<router-outlet></router-outlet>`,
-  providers: [LoginService]
+  providers: []
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {

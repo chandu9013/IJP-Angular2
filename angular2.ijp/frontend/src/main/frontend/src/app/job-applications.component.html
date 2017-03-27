@@ -1,1 +1,60 @@
-<h1>Job Applications</h1>
+<div class="container">
+    <div class="row">
+        <div class="">
+            <h1>Job Applications</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="">
+            <table class="table table-bordered" style="background-color:whitesmoke">
+                <thead style="background-color: darkorange;color: whitesmoke">
+                    <tr>
+                        <th>Job Id</th>
+                        <th>Category</th>
+                        <th>Team</th>
+                        <th>Description</th>
+                        <th>Posted On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{selectedJob.jId}}</td>
+                        <td>{{ selectedJob.category.categoryName }}</td>
+                        <td>{{ selectedJob.team.name }}</td>
+                        <td>{{ selectedJob.description }}</td>
+                        <td>{{ selectedJob.postedOn|date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="">
+            <table class="table table-bordered" style="background-color:whitesmoke">
+                <thead style="background-color: darkcyan;color: whitesmoke">
+                    <tr>
+                        <th>Application Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let application of jobApplications">
+                        <td>{{application.jAppId}}</td>
+                        <td>{{ application.employee.name }}</td>
+                        <td>{{ application.employee.emailId }}</td>
+                        <td>{{ application.appliedOn |date }}</td>
+                        <td>
+                            <button class="btn btn-primary" (click)="0">
+							<span class="glyphicon glyphicon-check"></span>Approve
+						    </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

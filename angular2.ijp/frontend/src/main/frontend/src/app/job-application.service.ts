@@ -6,18 +6,30 @@ import { Observable } from "rxjs/Observable";
 import { Location } from '@angular/common';
 
 @Injectable()
-export class JobService {
+export class JobApplicationService {
 
     response;
 
-    private url = 'jobs';
+    private url = '';
 
     constructor(private http: Http, private location: Location) {
-        this.url = this.location.prepareExternalUrl(this.url);
     }
-    public getJobs(pagesize, pageno): Observable<any> {
-        console.log('Getting Jobs');
-        return this.http.get(this.url + '/' + pagesize + "/" + pageno).map(response => {
+
+    public getJobApplication(jId): Observable<any> {
+        console.log('Getting Application for jId - '+jId);
+        this.url='jobs/'+jId+'/applications';
+        this.url = this.location.prepareExternalUrl(this.url);
+        return this.http.get(this.url).map(response => {
+            this.response = response.json();
+            return this.response;
+        });
+    }
+
+    public getMyJobApplication(): Observable<any> {
+        console.log('Getting my Applications');
+        this.url='applications';
+        this.url = this.location.prepareExternalUrl(this.url);
+        return this.http.get(this.url).map(response => {
             this.response = response.json();
             return this.response;
         });
