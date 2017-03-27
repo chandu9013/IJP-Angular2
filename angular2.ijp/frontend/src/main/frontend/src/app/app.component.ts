@@ -6,8 +6,7 @@ import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  template: `<router-outlet></router-outlet>`,
   providers: [LoginService]
 })
 export class AppComponent implements OnInit {
@@ -21,12 +20,12 @@ export class AppComponent implements OnInit {
 
   processResponse(response) {
     console.log('success response status - ' + JSON.stringify(response));
-    this.router.navigate(['home']);
+    this.router.navigate(['admin']);
   }
 
   processError(error) {
     console.log('error status - ' + error.status + ":::" + error._body);
     // Redirect to Login page
-    this.router.navigate(['home']);
+    this.router.navigate(['admin']);
   }
 }

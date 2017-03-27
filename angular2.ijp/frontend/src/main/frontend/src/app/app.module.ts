@@ -9,11 +9,20 @@ import {Ng2PaginationModule} from 'ng2-pagination';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from "./login.component";
-import { HomeComponent } from "./home.component";
+import { EmployeeComponent } from "./employee.component";
 import { NavbarComponent } from "app/navbar.component";
+import { AdminJobsComponent } from "app/admin-jobs.component";
+import { JobApplicationsComponent } from "app/job-applications.component";
+import { AdminComponent } from "app/admin.component";
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'admin', component: AdminComponent,
+      children: [
+      { path: '', redirectTo: 'jobs', pathMatch: 'full' },
+      { path: 'jobs', component: AdminJobsComponent },
+      { path: 'jobs/:id', component: JobApplicationsComponent }
+    ]
+  },
   { path: 'login',      component: LoginComponent },
   //{ path: '',component: AppComponent},
   // {
@@ -30,7 +39,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,LoginComponent,HomeComponent,NavbarComponent
+    AppComponent,LoginComponent,EmployeeComponent,NavbarComponent,AdminJobsComponent,JobApplicationsComponent,AdminComponent
   ],
   imports: [
     BrowserModule,
