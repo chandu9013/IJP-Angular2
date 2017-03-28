@@ -17,12 +17,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr *ngIf="selectedJob">
                         <td>{{selectedJob.jId}}</td>
-                        <td>{{ selectedJob.category.categoryName }}</td>
-                        <td>{{ selectedJob.team.name }}</td>
-                        <td>{{ selectedJob.description }}</td>
-                        <td>{{ selectedJob.postedOn|date }}</td>
+                        <td>{{selectedJob.category.categoryName}}</td>
+                        <td>{{selectedJob.team.name }}</td>
+                        <td>{{selectedJob.description}}</td>
+                        <td>{{selectedJob.postedOn|date}}</td>
                     </tr>
                 </tbody>
             </table>

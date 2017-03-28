@@ -13,10 +13,10 @@ import { EmployeeComponent } from "./employee.component";
 import { AdminJobsComponent } from "app/admin-jobs.component";
 import { JobApplicationsComponent } from "app/job-applications.component";
 import { AdminComponent } from "app/admin.component";
-import { JobService } from "app/job.service";
-import { LoginService } from "app/login.service";
-import { JobApplicationService } from "app/job-application.service";
 import { NewJobComponent } from "app/new-job.component";
+import { JobService } from "app/services/job.service";
+import { LoginService } from "app/services/login.service";
+import { JobApplicationService } from "app/services/job-application.service";
 
 const appRoutes: Routes = [
   {

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginService } from "app/login.service";
-import { NewJob } from "app/new-job";
+import { NewJob } from "app/models/new-job";
 
 @Component({
     selector:'new-job',
@@ -13,7 +12,7 @@ export class NewJobComponent{
     categories=[{'cId':1,'categoryName':'developer'},{'cId':2,'categoryName':'tester'}];
 
     onSubmit(){
-
+        console.log('Lets add new job now');
     }
     
 }

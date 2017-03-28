@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from "app/login.service";
 import { Router } from "@angular/router";
-import { JobService } from "app/job.service";
 import { Observable } from "rxjs/Observable";
+import { LoginService } from "app/services/login.service";
+import { JobService } from "app/services/job.service";
 
 @Component({
   selector: 'admin-jobs',

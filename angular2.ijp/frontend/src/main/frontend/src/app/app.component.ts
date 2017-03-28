@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from './login.component';
-import { LoginService } from "app/login.service";
 import 'rxjs';
 import { Router } from "@angular/router";
+import { LoginService } from "app/services/login.service";
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     console.log('Calling login service');
     this.loginService.getUser().subscribe(res => this.processResponse(res), error => this.processError(error));
-    console.log('On load - ' + this.router.url);
   }
 
   constructor(private loginService: LoginService, private router: Router) {

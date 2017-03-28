@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from "app/login.service";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs/Observable";
+import { LoginService } from "app/services/login.service";
 
 @Component({
     selector: 'admin',
