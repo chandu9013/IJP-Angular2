@@ -26,10 +26,4 @@ export class AdminJobsComponent implements OnInit {
       console.log('jobs - ' + JSON.stringify(res));
     }, error => console.log('error status - ' + error.status));
   }
-
-  applyJob(job) {
-    console.log(JSON.stringify(job));
-  }
-
-
 }

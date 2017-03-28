@@ -8,15 +8,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from "./login.component";
-import { EmployeeComponent } from "./employee.component";
-import { AdminJobsComponent } from "app/admin-jobs.component";
-import { JobApplicationsComponent } from "app/job-applications.component";
-import { AdminComponent } from "app/admin.component";
-import { NewJobComponent } from "app/new-job.component";
 import { JobService } from "app/services/job.service";
 import { LoginService } from "app/services/login.service";
 import { JobApplicationService } from "app/services/job-application.service";
+import { AdminComponent } from "app/components/admin.component";
+import { AdminJobsComponent } from "app/components/admin-jobs.component";
+import { NewJobComponent } from "app/components/new-job.component";
+import { JobApplicationsComponent } from "app/components/job-applications.component";
+import { LoginComponent } from "app/components/login.component";
+import { EmployeeComponent } from "app/components/employee.component";
+import { EmployeeJobsComponent } from "app/components/employee-jobs.component";
+import { MyApplicationsComponent } from "app/components/my-applications.component";
 
 const appRoutes: Routes = [
   {
@@ -26,6 +28,14 @@ const appRoutes: Routes = [
       { path: 'jobs', component: AdminJobsComponent },
       { path: 'jobs/new', pathMatch: 'full', component: NewJobComponent },
       { path: 'jobs/:id', component: JobApplicationsComponent }
+    ]
+  },
+  {
+    path: 'employee', component: EmployeeComponent,
+    children: [
+      { path: '', redirectTo: 'jobs', pathMatch: 'full' },
+      { path: 'jobs', component: EmployeeJobsComponent },
+      { path: 'applications', component: MyApplicationsComponent }
     ]
   },
   { path: 'login', component: LoginComponent },
@@ -50,7 +60,10 @@ const appRoutes: Routes = [
     AdminJobsComponent,
     JobApplicationsComponent,
     AdminComponent,
-    NewJobComponent
+    NewJobComponent,
+    EmployeeComponent,
+    EmployeeJobsComponent,
+    MyApplicationsComponent
   ],
   imports: [
     BrowserModule,

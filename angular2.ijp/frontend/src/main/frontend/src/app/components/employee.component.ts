@@ -7,7 +7,6 @@ import { JobService } from "app/services/job.service";
 @Component({
   selector: 'employee',
   templateUrl: 'employee.component.html',
-  styleUrls: ['employee.component.css'],
   providers: []
 })
 export class EmployeeComponent implements OnInit {
@@ -18,14 +17,10 @@ export class EmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.userDetails = this.loginService.response;
     console.log('user details - ' + JSON.stringify(this.loginService.response));
-    this.jobService.getJobs(1000, 1).subscribe(res => {
-      this.jobsDetails = res;
-      console.log('jobs - ' + JSON.stringify(res));
-    }, error => console.log('error status - ' + error.status));
   }
 
 
-  constructor(private loginService: LoginService, private jobService: JobService) {
+  constructor(private loginService: LoginService, private jobService: JobService,private router:Router) {
   }
 
   applyJob(job) {

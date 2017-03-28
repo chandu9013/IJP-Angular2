@@ -5,11 +5,11 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li [class.active]="page===1" (click)="page=1">
-                    <a routerLink="/admin/jobs">Jobs</a>
+                <li [class.active]="router.url=='/employee/jobs'">
+                    <a routerLink="/employee/jobs">Jobs</a>
                 </li>
-                <li [class.active]="page===2" (click)="page=2">
-                    <a routerLink="/admin/jobs/new">New Job</a>
+                <li [class.active]="router.url=='/employee/applications'" >
+                    <a routerLink="/employee/applications">Applications</a>
                 </li>
             </ul>
 

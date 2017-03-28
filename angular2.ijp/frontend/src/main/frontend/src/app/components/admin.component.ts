@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { LoginService } from "app/services/login.service";
 
@@ -9,9 +9,6 @@ import { LoginService } from "app/services/login.service";
     styleUrls: ['admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-
-    public page=1;
-
     userDetails;
     ngOnInit(): void {
         this.userDetails = this.loginService.response;
@@ -19,10 +16,6 @@ export class AdminComponent implements OnInit {
     }
 
 
-    constructor(private loginService: LoginService) {
-    }
-
-    applyJob(job) {
-        console.log(JSON.stringify(job));
+    constructor(private loginService: LoginService,private route:ActivatedRoute,private router:Router) {
     }
 }
