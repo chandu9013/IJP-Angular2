@@ -19,12 +19,16 @@ export class AppComponent implements OnInit {
 
   processResponse(response) {
     console.log('success response status - ' + JSON.stringify(response));
-    //this.router.navigate(['admin']);
+    if (response.roleModel.rid == 1) {
+      this.router.navigate(['admin']);
+    } else {
+      this.router.navigateByUrl('employee');
+    }
   }
 
   processError(error) {
     console.log('error status - ' + error.status + ":::" + error._body);
     // Redirect to Login page
-    //this.router.navigate(['login']);
+    this.router.navigate(['login']);
   }
 }

@@ -85,22 +85,22 @@ public class AuthenticationServiceImpl implements AuthenticationService {
   @Override
   public SessionParams validateSession(HttpSession session) throws UnauthorizedException {
     SessionParams sessionParams;
-//    if (session == null)
-//      throw new UnauthorizedException("Please login to continue");
-//    String emailId = (String) session.getAttribute(Constants.SESSION_KEY_EMAIL);
-//    Integer eId = (Integer) session.getAttribute(Constants.SESSION_KEY_EID);
-//    LOG.debug(eId + ",,," + emailId);
-//    if (emailId != null && !emailId.equals("") && eId != null) {
-//      sessionParams = new SessionParams();
-//      sessionParams.setEmailId(emailId);
-//      sessionParams.seteId(eId);
-//      LOG.debug("Session validated for - " + eId);
-//    } else {
-//      throw new UnauthorizedException("Please login to continue");
-//    }
-    sessionParams = new SessionParams();
-    sessionParams.setEmailId("sai.chandra@practo.com");
-    sessionParams.seteId(14);
+   if (session == null)
+     throw new UnauthorizedException("Please login to continue");
+   String emailId = (String) session.getAttribute(Constants.SESSION_KEY_EMAIL);
+   Integer eId = (Integer) session.getAttribute(Constants.SESSION_KEY_EID);
+   LOG.debug(eId + ",,," + emailId);
+   if (emailId != null && !emailId.equals("") && eId != null) {
+     sessionParams = new SessionParams();
+     sessionParams.setEmailId(emailId);
+     sessionParams.seteId(eId);
+     LOG.debug("Session validated for - " + eId);
+   } else {
+     throw new UnauthorizedException("Please login to continue");
+   }
+    // sessionParams = new SessionParams();
+    // sessionParams.setEmailId("sai.chandra@practo.com");
+    // sessionParams.seteId(14);
     return sessionParams;
   }
 
