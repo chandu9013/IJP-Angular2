@@ -18,8 +18,11 @@ export class AppComponent implements OnInit {
   }
 
   processResponse(response) {
+    console.log('location - ' + this.router.url)
     console.log('success response status - ' + JSON.stringify(response));
-    if (response.roleModel.rid == 1) {
+    if (this.router.url != '/') {
+      this.router.navigate([this.router.url]);
+    } else if (response.roleModel.rid == 1) {
       this.router.navigate(['admin']);
     } else {
       this.router.navigateByUrl('employee');
