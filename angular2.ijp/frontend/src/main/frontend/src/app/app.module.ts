@@ -19,6 +19,7 @@ import { LoginComponent } from "app/components/login.component";
 import { EmployeeComponent } from "app/components/employee.component";
 import { EmployeeJobsComponent } from "app/components/employee-jobs.component";
 import { MyApplicationsComponent } from "app/components/my-applications.component";
+import { MiscService } from "app/services/misc.service";
 
 const appRoutes: Routes = [
   {
@@ -75,7 +76,8 @@ const appRoutes: Routes = [
   providers: [
     JobService,
     LoginService,
-    JobApplicationService
+    JobApplicationService,
+    MiscService
   ],
   bootstrap: [AppComponent]
 })

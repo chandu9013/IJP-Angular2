@@ -1,6 +1,6 @@
-import { Category } from "app/category";
-import { Team } from "app/team";
-import { Employee } from "app/employee";
+import { Category } from "app/models/category";
+import { Team } from "app/models/team";
+import { Employee } from "app/models/employee";
 
 export interface Job {
     jId:number;
