@@ -21,6 +21,14 @@ export class AdminJobsComponent implements OnInit {
   ngOnInit(): void {
     this.userDetails = this.loginService.response;
     console.log('user details - ' + JSON.stringify(this.loginService.response));
+    this.getJobs();
+  }
+
+  delete(id) {
+    this.jobService.deleteJob(id).subscribe(res => this.getJobs(), error => console.log('error - ' + error.status));
+  }
+
+  getJobs() {
     this.jobService.getJobs(1000, 1).subscribe(res => {
       this.jobsDetails = res;
       console.log('jobs - ' + JSON.stringify(res));

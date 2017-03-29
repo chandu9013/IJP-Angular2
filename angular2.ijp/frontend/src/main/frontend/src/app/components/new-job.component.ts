@@ -50,9 +50,4 @@ export class NewJobComponent implements OnInit {
     goBack() {
         this.router.navigateByUrl('/admin/jobs');
     }
-
-    submitplz() {
-        console.log('Fuck!');
-    }
-
 }
