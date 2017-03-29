@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div>
+            <h1>My Applications</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="">
+            <table class="table table-bordered" style="background-color:whitesmoke">
+                <thead style="background-color: darkcyan;color: whitesmoke">
+                    <tr>
+                        <th>Application Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let application of jobApplications">
+                        <td>{{application.jAppId}}</td>
+                        <td>{{ application.employee.name }}</td>
+                        <td>{{ application.employee.emailId }}</td>
+                        <td>{{ application.appliedOn |date }}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="delete(application)">
+							Delete
+						    </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-offset-5"><label style="color: green">{{message}}</label></div>
+    </div>
+</div>

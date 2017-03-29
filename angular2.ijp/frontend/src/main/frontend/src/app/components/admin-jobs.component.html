@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="">
+            <h1>Jobs</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="">
+            <table class="table table-bordered" style="background-color:whitesmoke">
+                <thead style="background-color: darkorange;color: whitesmoke">
+                    <tr>
+                        <th>Job Id</th>
+                        <th>Category</th>
+                        <th>Team</th>
+                        <th>Description</th>
+                        <th>Posted On</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let job of jobsDetails.jobs">
+                        <td>{{job.jId}}</td>
+                        <td>{{ job.category.categoryName }}</td>
+                        <td>{{ job.team.name }}</td>
+                        <td>{{ job.description }}</td>
+                        <td>{{ job.postedOn|date }}</td>
+                        <td>
+                            <a [routerLink]="['../jobs',job.jId]"><button class="btn btn-primary">
+							<span class="glyphicon glyphicon-eye-open"></span>
+						    </button></a>
+                            <button class="btn btn-success" (click)="0">
+							<span class="glyphicon glyphicon-pencil"></span>
+						    </button>
+                            <button class="btn btn-danger" (click)="delete(job.jId)">
+							<span class="glyphicon glyphicon-remove"></span>
+						    </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
